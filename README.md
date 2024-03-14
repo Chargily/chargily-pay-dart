@@ -1,6 +1,10 @@
 # Welcome to Dart Package Repository
 # for [Chargily Pay](https://chargily.com/business/pay "Chargily Pay")™ Gateway - V2.
-# this package for DART/FLUTTER has been built by: [RAEDIN KHALED SAKHRI](https://www.linkedin.com/in/raedin-khaled-sakhri-167850232/)
+
+## Author
+[RAEDIN KHALED SAKHRI](https://www.linkedin.com/in/raedin-khaled-sakhri-167850232/)
+
+
 
 ## About Chargily Pay™ packages
 
