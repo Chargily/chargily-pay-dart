@@ -1,7 +1,6 @@
 library chargily_pay;
 
-import 'dart:convert';
-import 'package:chargily_pay/src/baseApiURL.dart';
+import 'package:chargily_pay/src/base_api_url.dart';
 import 'package:chargily_pay/src/models/checkout.dart';
 import 'package:chargily_pay/src/models/customer.dart';
 import 'package:chargily_pay/src/models/paymentlink.dart';
@@ -18,7 +17,7 @@ class ChargilyPayService {
   ChargilyPayService({
     required this.apiKey,
     required this.secret,
-    this.baseUrl = CHARGILIY_URL,
+    this.baseUrl = chargilyUrl,
   }) : dio = Dio(
           BaseOptions(
             baseUrl: baseUrl,

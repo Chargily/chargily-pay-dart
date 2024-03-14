@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:chargily_pay/chargily_pay.dart';
-import 'package:dio/dio.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
