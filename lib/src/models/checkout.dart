@@ -79,7 +79,7 @@ class Checkout {
         if (webhookEndpoint != null) 'webhook_endpoint': webhookEndpoint,
         if (passFeesToCustomer != null)
           'pass_fees_to_customer': passFeesToCustomer,
-        if (metadata.isEmpty)
+        if (metadata.isNotEmpty)
           'metadata': metadata.map((e) => jsonEncode(e)).toList()
       };
 }
