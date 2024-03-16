@@ -262,6 +262,8 @@ class ChargilyPayService {
 
   /// Create a checkout by providing the [checkout] object of type [Checkout].
   Future createCheckout({required Checkout checkout}) async {
+    print(checkout.toJson());
+
     try {
       final response = await dio.post('/checkouts', data: checkout.toJson());
 
