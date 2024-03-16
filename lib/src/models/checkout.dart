@@ -44,24 +44,6 @@ class Checkout {
     }
   }
 
-  factory Checkout.fromJson(Map<String, dynamic> json) => Checkout(
-        successUrl: json['success_url'] as String,
-        items: json['items']
-            ?.cast<Map<String, dynamic>>()
-            ?.map((item) => CheckoutItem.fromJson(item))
-            .toList(),
-        amount: json['amount'] as int?,
-        currency: json['currency'] as String?,
-        failureUrl: json['failure_url'] as String?,
-        customerId: json['customer_id'] as String?,
-        description: json['description'] as String?,
-        locale: json['locale'] as String?,
-        paymentMethod: json['payment_method'] as String?,
-        webhookEndpoint: json['webhook_endpoint'] as String?,
-        passFeesToCustomer: json['pass_fees_to_customer'] as bool?,
-        metadata: json['metadata'] ?? const [],
-      );
-
   Map<String, dynamic> toJson() => {
         // Include items only if amount is not provided
         if (amount == null)

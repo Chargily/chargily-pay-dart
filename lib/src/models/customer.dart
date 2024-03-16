@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:chargily_pay/src/models/address.dart';
 
 class Customer {
@@ -15,19 +17,15 @@ class Customer {
     this.metadata = const [],
   });
 
-  factory Customer.fromJson(Map<String, dynamic> json) => Customer(
-        name: json['name'] as String,
-        email: json['email'] as String,
-        phone: json['phone'] as String,
-        address: Address.fromJson(json['address']),
-        metadata: json['metadata'] ?? const [],
-      );
-
   Map<String, dynamic> toJson() => {
         'name': name,
         'email': email,
-        'phone': phone,
-        'address': address?.toJson(),
-        if (metadata.isNotEmpty) 'metadata': metadata,
+        if (phone != null) 'phone': phone,
+        if (address?.address != null ||
+            address?.state != null ||
+            address?.country != null)
+          'address': address?.toJson(),
+        if (metadata.isNotEmpty)
+          'metadata': metadata.map((e) => jsonEncode(e)).toList(),
       };
 }

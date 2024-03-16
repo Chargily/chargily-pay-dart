@@ -9,15 +9,10 @@ class PaymentItem {
     this.adjustableQuantity,
   });
 
-  factory PaymentItem.fromJson(Map<String, dynamic> json) => PaymentItem(
-        price: json['price'] as String,
-        quantity: json['quantity'] as int,
-        adjustableQuantity: json['adjustable_quantity'] as bool?,
-      );
-
   Map<String, dynamic> toJson() => {
         'price': price,
         'quantity': quantity,
-        'adjustable_quantity': adjustableQuantity,
+        if (adjustableQuantity != null)
+          'adjustable_quantity': adjustableQuantity,
       };
 }

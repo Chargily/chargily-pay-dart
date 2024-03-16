@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Price {
   final int amount;
   final String currency;
@@ -11,17 +13,11 @@ class Price {
     this.metadata = const [],
   });
 
-  factory Price.fromJson(Map<String, dynamic> json) => Price(
-        amount: json['amount'],
-        currency: json['currency'],
-        productId: json['product_id'],
-        metadata: json['metadata'] ?? const [],
-      );
-
   Map<String, dynamic> toJson() => {
         'amount': amount,
         'currency': currency,
         'product_id': productId,
-        if (metadata.isNotEmpty) 'metadata': metadata,
+        if (metadata.isNotEmpty)
+          'metadata': metadata.map((e) => jsonEncode(e)).toList(),
       };
 }
