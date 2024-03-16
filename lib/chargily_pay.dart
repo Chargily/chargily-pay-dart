@@ -261,13 +261,13 @@ class ChargilyPayService {
   // **********************
 
   /// Create a checkout by providing the [checkout] object of type [Checkout].
-  Future createCheckout({required Checkout checkout}) async {
+  createCheckout({required Checkout checkout}) {
     print(checkout.toJson());
 
     try {
-      final response = await dio.post('/checkouts', data: checkout.toJson());
+      //final response = await dio.post('/checkouts', data: checkout.toJson());
 
-      return response;
+      print(checkout.toJson());
     } catch (error) {
       throw Exception('Failed to create checkout: $error');
     }
