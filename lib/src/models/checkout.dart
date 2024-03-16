@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:chargily_pay/src/models/checkoutitem.dart';
 
 class Checkout {
@@ -69,13 +71,15 @@ class Checkout {
         if (items == null) 'amount': amount,
         'success_url': successUrl,
         'currency': currency,
-        'failure_url': failureUrl,
-        'customer_id': customerId,
-        'description': description,
-        'locale': locale,
-        'payment_method': paymentMethod,
-        'webhook_endpoint': webhookEndpoint,
-        'pass_fees_to_customer': passFeesToCustomer,
-        'metadata': metadata,
+        if (failureUrl != null) 'failure_url': failureUrl,
+        if (customerId != null) 'customer_id': customerId,
+        if (description != null) 'description': description,
+        if (locale != null) 'locale': locale,
+        if (paymentMethod != null) 'payment_method': paymentMethod,
+        if (webhookEndpoint != null) 'webhook_endpoint': webhookEndpoint,
+        if (passFeesToCustomer != null)
+          'pass_fees_to_customer': passFeesToCustomer,
+        if (metadata.isEmpty)
+          'metadata': metadata.map((e) => jsonEncode(e)).toList()
       };
 }
