@@ -61,9 +61,13 @@ class Checkout {
       );
 
   Map<String, dynamic> toJson() => {
+        // Include items only if amount is not provided
+        if (amount == null)
+          'items': items?.map((item) => item.toJson()).toList(),
+
+        // Include amount only if items are not provided
+        if (items == null) 'amount': amount,
         'success_url': successUrl,
-        'items': items?.map((item) => item.toJson()).toList(),
-        'amount': amount,
         'currency': currency,
         'failure_url': failureUrl,
         'customer_id': customerId,
