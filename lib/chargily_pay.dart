@@ -7,6 +7,7 @@ import 'package:chargily_pay/src/models/paymentlink.dart';
 import 'package:chargily_pay/src/models/price.dart';
 import 'package:chargily_pay/src/models/product.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class ChargilyPayService {
   final String baseUrl;
@@ -261,13 +262,14 @@ class ChargilyPayService {
   // **********************
 
   /// Create a checkout by providing the [checkout] object of type [Checkout].
-  createCheckout({required Checkout checkout}) {
-    print(checkout.toJson());
-
-    try {
-      //final response = await dio.post('/checkouts', data: checkout.toJson());
-
+  Future createCheckout({required Checkout checkout}) async {
+    if (kDebugMode) {
       print(checkout.toJson());
+    }
+    try {
+      final response = await dio.post('/checkouts', data: checkout.toJson());
+
+      return response;
     } catch (error) {
       throw Exception('Failed to create checkout: $error');
     }
