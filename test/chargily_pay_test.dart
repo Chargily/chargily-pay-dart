@@ -7,9 +7,9 @@ void main() {
     final service = ChargilyPayService(
       baseUrl: "https://pay.chargily.net/test/api/v2",
       apiKey:
-          'test_pk_hltuu4RLw2vBLtfFxFvq5gMDzN5OwfHWEFm30LWc', // Replace with your actual API key
+          'test_pk_hltuu4RLw2vBssLtfFxFvq5gMDzN5OwfHWEFm30LWcss', // Replace with your own API key
       secret:
-          'test_sk_zK5Qo73qY3dIQJrfFN98yVMlPXBOyUHKUMmCYl8R', // Replace with your actual secret
+          'test_sk_zK5Qo73qsY3dIQJrfFN98yVMlPXBOyUHKUMmCYl8ssR', // Replace with your own secret
     );
 
     final result = await service.getBalance();
